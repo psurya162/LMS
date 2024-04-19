@@ -1,0 +1,26 @@
+.password-strength-meters {
+  display: flex;
+  align-items: center;
+  height: 6px;
+  width: 27%;
+  margin-top: 5px;
+  gap: 10px;
+}
+
+.strength-meter-bar {
+  flex-grow: 1;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.strength-low {
+  background-color: red;
+}
+
+.strength-medium {
+  background-color: yellow;
+}
+
+.strength-strong {
+  background-color: green;
+}
