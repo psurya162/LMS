@@ -20,7 +20,7 @@ const DashboardProfile = ({ userData, setUserData }) => {
 
       // Make an API call to update user profile
       const response = await axios.put(
-        "http://localhost:5000/api/v1/userprofile",
+        "https://deltaviewlms.onrender.com/api/v1/userprofile",
         updatedUserData,
         {
           headers: {

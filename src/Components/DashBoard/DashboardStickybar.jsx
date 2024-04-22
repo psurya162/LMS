@@ -65,7 +65,7 @@ const DashboardStickybar = ({ updateClassAndNavigateToDashboard }) => {
 
     try {
       const response = await axios.put(
-        "http://localhost:5000/api/v1/updategrade",
+        "https://deltaviewlms.onrender.com/api/v1/updategrade",
         { grade: classNumber },
         {
           headers: {
@@ -98,7 +98,7 @@ const DashboardStickybar = ({ updateClassAndNavigateToDashboard }) => {
 
     try {
       const response = await axios.put(
-        "http://localhost:5000/api/v1/updatestream",
+        "https://deltaviewlms.onrender.com/api/v1/updatestream",
         { stream },
         {
           headers: {
