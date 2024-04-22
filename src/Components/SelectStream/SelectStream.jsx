@@ -75,7 +75,7 @@ const SelectStream = () => {
             <Row>
               <Col lg={12} className="text-center">
                 <Link to="/select-class" className="loginlogo">
-                  <i className="icofont-double-left" /> <span>Back</span>
+                <i class="fa-solid fa-angles-left"></i> <span>Back</span>
                 </Link>
               </Col>
             </Row>

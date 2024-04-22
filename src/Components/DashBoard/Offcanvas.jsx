@@ -53,7 +53,7 @@ const Offcanvas = ({handleClose}) => {
         </div>
         <div className="v-sidebar-fade" style={{ display: "block" }}>
           <button id="sidebar-close-btn" onClick={handleClose}>
-            <i className="icofont-close-line text-white" />
+          <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
       </div>

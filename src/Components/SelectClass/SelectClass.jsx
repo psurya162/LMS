@@ -108,7 +108,7 @@ const SelectClass = () => {
             <div className="row">
               <div className="col-lg-12 text-center">
                 <Link className="loginlogo" to="/select-language">
-                  <i className="icofont-double-left" /> <span>Back</span>
+                <i class="fa-solid fa-angles-left"></i><span>Back</span>
                 </Link>
               </div>
             </div>

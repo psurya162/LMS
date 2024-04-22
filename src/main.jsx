@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./index.css";
-import "react-icofont";
+// import "react-icofont";
 import { UserProvider } from "./Store";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";

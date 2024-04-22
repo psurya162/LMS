@@ -46,10 +46,10 @@ const HeroSection = () => {
               <p>Learning app for classes 1st to 12th All Subjects</p>
             </div>
             <div className="hreobannerarea__button__2">
-              <Link to="javascript:void(0)">
+              <Link >
                 <img src="./src/assets/img/about/google-play.png" alt="img" />
              </Link>
-              <Link to="javascript:void(0)">
+              <Link >
                 <img src="./src/assets/img/about/app-store.png" alt="img" />
              </Link>
             </div>
@@ -507,7 +507,7 @@ const HeroSection = () => {
             <div className="aboutarea__bottom__button">
               <Link className="default__button" to="#">
                 Read More
-                <i className="icofont-long-arrow-right" />
+                <i class="fa-solid fa-arrow-right-long"></i>
              </Link>
             </div>
           </div>
@@ -597,7 +597,7 @@ const HeroSection = () => {
             <div className="aboutarea__bottom__button">
               <Link className="default__button" to="#">
                 Read More
-                <i class="icofont-long-arrow-right"></i>
+                <i class="fa-solid fa-arrow-right-long"></i>
              </Link>
             </div>
           </div>

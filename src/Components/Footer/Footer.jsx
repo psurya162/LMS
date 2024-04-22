@@ -94,27 +94,27 @@ const Footer = () => {
               <ul>
                 <li>
                   <Link to="http://facebook.com/">
-                    <i className="icofont-facebook" /> Facebook
+                  <i class="fa-brands fa-facebook"></i> Facebook
                   </Link>
                 </li>
                 <li>
                   <Link to="http://twitter.com/">
-                    <i className="icofont-twitter" /> Twitter
+                  <i class="fa-brands fa-twitter"></i> Twitter
                   </Link>
                 </li>
                 <li>
                   <Link to="http://linkedin.com/">
-                    <i className="icofont-linkedin" /> Linkedin
+                  <i class="fa-brands fa-linkedin"></i> Linkedin
                   </Link>
                 </li>
                 <li>
                   <Link to="http://instagram.com/">
-                    <i className="icofont-instagram" /> Instagram
+                  <i class="fa-brands fa-instagram"></i> Instagram
                   </Link>
                 </li>
                 <li>
                   <Link to="http://youtube.com/">
-                    <i className="icofont-youtube" /> Youtube
+                  <i class="fa-brands fa-youtube"></i> Youtube
                   </Link>
                 </li>
               </ul>

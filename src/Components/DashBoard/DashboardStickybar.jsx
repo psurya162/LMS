@@ -6,6 +6,7 @@ import { toast, Toaster } from "sonner";
 import axios from "axios";
 import { useUser } from "../../Store";
 
+
 const DashboardStickybar = ({ updateClassAndNavigateToDashboard }) => {
   const [showClassModal, setShowClassModal] = useState(false);
   const [showStreamModal, setShowStreamModal] = useState(false);
@@ -144,7 +145,7 @@ const DashboardStickybar = ({ updateClassAndNavigateToDashboard }) => {
                         className={selectedClass ? "active" : ""}
                       >
                         Class {userData && userData.grade ? userData.grade : ""}
-                        <i className="icofont-rounded-down" />
+                        <i class="fa-solid fa-chevron-down"></i>
                       </Link>
                     </li>
                     <li>

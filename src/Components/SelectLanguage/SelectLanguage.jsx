@@ -67,7 +67,7 @@ const SelectLanguage = () => {
             <Row>
               <Col lg={12} className="text-center">
                 <NavLink className="loginlogo" to="/select-board">
-                  <i className="icofont-double-left"></i><span>Back</span>
+                <i class="fa-solid fa-angles-left"></i><span>Back</span>
                 </NavLink>
               </Col>
             </Row>
