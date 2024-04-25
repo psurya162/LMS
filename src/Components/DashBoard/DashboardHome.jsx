@@ -19,7 +19,7 @@ const DashboardHome = ({ handleSubjectClick ,userData ,setUserData }) => {
         }
 
         const response = await axios.get(
-          "https://deltaviewlms.onrender.com/api/v1/getsubject", // Update the endpoint URL
+          "http://localhost:5000/api/v1/getsubject", // Update the endpoint URL
           {
             headers: {
               Authorization: `Bearer ${token}`,

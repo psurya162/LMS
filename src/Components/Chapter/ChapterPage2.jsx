@@ -428,8 +428,8 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
                                               index < 3
                                                 ? "icofont-ui-video-play"
                                                 : is_icon === 3
-                                                ? "icofont-ui-lock"
-                                                : "icofont-ui-video-play"
+                                                ? "fa-solid fa-lock"
+                                                : "fa-solid fa-circle-play"
                                             }`}
                                           />
                                           {i + 1}. {videoItem.video_title}

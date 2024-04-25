@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./index.css";
+// import Adminpanel from "./Components/AdminPanel/Adminpanel";
 // import "react-icofont";
 import { UserProvider } from "./Store";
 import { BrowserRouter } from "react-router-dom";
@@ -16,5 +17,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <App />
       </BrowserRouter>
     </UserProvider>
+    {/* <Adminpanel/> */}
   </React.StrictMode>
 );

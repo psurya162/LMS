@@ -25,7 +25,7 @@ const Login = () => {
       try {
         setIsLoading(true); // Set loading state to true
         const response = await axios.post(
-          "https://deltaviewlms.onrender.com/api/v1/login",
+          "http://localhost:5000/api/v1/login",
           values
         );
 
@@ -57,6 +57,7 @@ const Login = () => {
   // Function to toggle "Remember Me" checkbox state
   const toggleRememberMe = () => {
     setRememberMe(!rememberMe);
+    console.log("remember me")
   };
 
   // Effect to pre-fill email field if "Remember Me" is checked and email is stored in localStorage
