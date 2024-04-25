@@ -22,7 +22,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   
-console.log(emailVerificationStatus,"status")
+
   useEffect(() => {
     let interval;
     if (isTimerRunning && timer > 0) {
@@ -276,8 +276,7 @@ console.log(emailVerificationStatus,"status")
     }
   });
   
-  console.log("Formik values:", formik.values);
-console.log("Formik errors:", formik.errors);
+ 
 
   return (
     <>
