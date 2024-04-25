@@ -426,10 +426,10 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
                                             className={`${
                                               activeVideoIndex === i &&
                                               index < 3
-                                                ? "icofont-ui-video-play"
+                                                ? "fa-solid fa-circle-play"
                                                 : is_icon === 3
-                                                ? "icofont-ui-lock"
-                                                : "icofont-ui-video-play"
+                                                ? "fa-solid fa-lock"
+                                                : "fa-solid fa-circle-play"
                                             }`}
                                           />
                                           {i + 1}. {videoItem.video_title}
