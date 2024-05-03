@@ -51,7 +51,7 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
         }
 
         const response = await axios.get(
-          `http://localhost:5000/api/v1/getvideos/${selectedSubjectId}`, // Use selectedSubjectId as the id parameter
+          `https://deltaviewlms.onrender.com/api/v1/getvideos/${selectedSubjectId}`, // Use selectedSubjectId as the id parameter
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -107,7 +107,7 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
   const updateClassAndNavigateToDashboard = async (classNumber) => {
     try {
       const response = await axios.put(
-        "http://localhost:5000/api/v1/updategrade",
+        "https://deltaviewlms.onrender.com/api/v1/updategrade",
         { grade: classNumber },
         {
           headers: {

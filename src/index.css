@@ -13216,7 +13216,11 @@ Dark Mode
   background: rgb(32 41 87);
   padding: 0 30px;
   line-height: 35px;
+<<<<<<< HEAD
   color:white ;
+=======
+  color: #fff ;
+>>>>>>> e41b4ea4b5be8bde5386c43e90a585fae0fcfda3
   height: 35px;
   margin: 0 7px;
   border-radius: 40px;

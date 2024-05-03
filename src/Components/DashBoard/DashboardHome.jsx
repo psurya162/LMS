@@ -93,7 +93,7 @@ const DashboardHome = ({ handleSubjectClick, userData }) => {
         }
 
         const response = await axios.get(
-          "http://localhost:5000/api/v1/getsubject",
+          "http://localhost:5000/api/v1/getsubject", // Update the endpoint URL
           {
             headers: {
               Authorization: `Bearer ${token}`,

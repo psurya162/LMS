@@ -87,7 +87,7 @@ const DeltaPartner = () => {
               <div className="value-box colorshade-1 p-5 text-center">
                 <p>
                   You get great partner margins, control on the discounts and a
-                  sincere growth partner in iPrep
+                  sincere growth partner in DeltaView
                 </p>
               </div>
             </div>
@@ -95,7 +95,7 @@ const DeltaPartner = () => {
               <div className="value-box colorshade-2 p-5">
                 <p>
                   You get great partner margins, control on the discounts and a
-                  sincere growth partner in iPrep
+                  sincere growth partner in DeltaView
                 </p>
               </div>
             </div>
@@ -103,7 +103,7 @@ const DeltaPartner = () => {
               <div className="value-box colorshade-2 p-5">
                 <p>
                   You get great partner margins, control on the discounts and a
-                  sincere growth partner in iPrep
+                  sincere growth partner in DeltaView
                 </p>
               </div>
             </div>
@@ -111,7 +111,7 @@ const DeltaPartner = () => {
               <div className="value-box colorshade-1 p-5">
                 <p>
                   You get great partner margins, control on the discounts and a
-                  sincere growth partner in iPrep
+                  sincere growth partner in DeltaView
                 </p>
               </div>
             </div>
@@ -131,9 +131,9 @@ const DeltaPartner = () => {
                 </h2>
                 <p className="text-white">
                   You can transparently track your earnings due and future
-                  business possibilities within the iPrep app itself. Everytime
+                  business possibilities within the DeltaView app itself. Everytime
                   your unique partner code is used, it will get recorded on your
-                  iPrep App
+                  DeltaView App
                 </p>
               </div>
             </div>
@@ -147,7 +147,7 @@ const DeltaPartner = () => {
               <div className="list-become">
                 <ul>
                   <li>
-                    Download iPrep Learning App for 1st to 12th from Google Play
+                    Download DeltaView Learning App for 1st to 12th from Google Play
                     Store and register as a teacher
                   </li>
                   <li>Explore the entire app well</li>
@@ -173,7 +173,7 @@ const DeltaPartner = () => {
             </div>
             <div className="col-lg-5 become-bgfix">
               <div className="title-box-become">
-                How to become an iPrep Partner?
+                How to become an DeltaView Partner?
               </div>
             </div>
           </div>
