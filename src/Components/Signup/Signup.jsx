@@ -276,11 +276,7 @@ const Signup = () => {
     }
   });
   
-<<<<<<< HEAD
-  
-=======
  
->>>>>>> e41b4ea4b5be8bde5386c43e90a585fae0fcfda3
 
   return (
     <>
