@@ -13213,10 +13213,10 @@ Dark Mode
 
 .admin-header-menu li a {
   display: inline-block;
-  background: #fff;
+  background: rgb(32 41 87);
   padding: 0 30px;
   line-height: 35px;
-  color: rgb(32 41 87);
+  color:white ;
   height: 35px;
   margin: 0 7px;
   border-radius: 40px;

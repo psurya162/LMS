@@ -169,7 +169,7 @@ const DashboardProfile = ({ userData, setUserData }) => {
                   <div className="dashboard__form__wraper">
                     <div className="dashboard__form__input">
                       <label htmlFor="#">City</label>
-                      <input
+                      <input      
                         type="text"
                         placeholder="City"
                         name="city"

@@ -3,20 +3,24 @@ import DashBoardfooter from "../DashBoard/DashBoardfooter";
 import DashboardStickybar from "../DashBoard/DashboardStickybar";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate ,useParams } from "react-router-dom";
 import { useUser } from "../../Store";
+
 
 const ChapterPage2 = ({ selectedSubjectId }) => {
   const [openSection, setOpenSection] = useState(null);
   const navigate = useNavigate(); // Initialize navigate function
   const [subjectTitle, setSubjectTitle] = useState(""); // State to store subject title
   const [totalVideos, setTotalVideos] = useState(0); // State to store total number of videos
+  const [subject_logo, setSubjectLogo] = useState("");
   const [currentVideo, setCurrentVideo] = useState(null); // State to store the current video URL
+  const [books, setBooks] = useState([]);
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
   const [playLimit, setPlayLimit] = useState(0);
   const [playL, setPlayL] = useState(0);
   const [is_icon, set_icon] = useState(0);
   const { userData, setUserData } = useUser(); // Use useUser hook
+  
 
   const toggleAccordion = (sectionId) => {
     setOpenSection((prevOpenSection) =>
@@ -55,8 +59,11 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
           }
         );
         if (response.data.videos.length > 0) {
-          const { videos, playLimit, playL } = response.data;
+          const { videos, playLimit, playL, subject_logo } = response.data;
+
+          console.log(response.data);
           setSubjectTitle(videos[0].subject_title);
+          setSubjectLogo(subject_logo); // Set subject logo in state
           setTotalVideos(playL);
           setVideos(videos);
           setPlayL(playL);
@@ -67,8 +74,32 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
         console.error("Error fetching videos:", error);
       }
     };
+    const fetchBooks = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          // Redirect to login if token is not available
+          return;
+        }
+
+        const response = await axios.get(
+          `http://localhost:5000/api/v1/books/${selectedSubjectId}`, // Use selectedSubjectId as the id parameter
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response);
+        setBooks(response.data.books);
+      } catch (error) {
+        console.error("Error fetching videos:", error);
+      }
+    };
+
     if (selectedSubjectId) {
       fetchVideos();
+      fetchBooks();
     }
   }, [selectedSubjectId]);
 
@@ -94,6 +125,11 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
       console.error("Error updating grade:", error);
       toast.error("Failed to update grade");
     }
+  };
+
+  const handleBookClick = (bookUrl) => {
+    // Navigate to the PDF viewer route with the book URL as a parameter
+    navigate(`/pdf-viewer/${encodeURIComponent(bookUrl)}`);
   };
 
   return (
@@ -182,7 +218,7 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
                         />
                       )}
                     </div>
-                    {/* <div
+                    <div
                       className={`tab-pane fade ${
                         activeTab === "books" ? "show active" : ""
                       }`}
@@ -190,133 +226,27 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
                       role="tabpanel"
                       aria-labelledby="books"
                     >
-                      Books content
-
                       <div className="row">
                         <div className="col-lg-12">
-                          <h3 className="books-subtitle">Mathematics-1</h3>
+                          <h3 className="books-subtitle">{subjectTitle}</h3>
                         </div>
-                        <div className="col-lg-6">
-                          <Link
-                            to="javascript:void(0)"
-                            className="practice-box"
-                          >
-                            <h4>
-                              <i className="icofont-book-alt icofont-2x" />
-                              01. index
-                            </h4>
-                            <ul className="pages">
-                              <li>
-                                <b>4 / 12</b> pages
-                              </li>
-                              <li>
-                                <span className="progress" />
-                              </li>
-                            </ul>
-                          </Link>
-                        </div>
-                        <div className="col-lg-6">
-                          <Link
-                            to="javascript:void(0)"
-                            className="practice-box"
-                          >
-                            <h4>
-                              <i className="icofont-book-alt icofont-2x" />
-                              01. index
-                            </h4>
-                            <ul className="pages">
-                              <li>
-                                <b>4 / 12</b> pages
-                              </li>
-                              <li>
-                                <span className="progress" />
-                              </li>
-                            </ul>
-                          </Link>
-                        </div>
-                        <div className="col-lg-6 d-flex">
-                          <Link
-                            to="javascript:void(0)"
-                            className="practice-box"
-                          >
-                            <h4>
-                              <i className="icofont-book-alt icofont-2x" />
-                              02. chapter 2-Inverse Trigonometric Functions
-                            </h4>
-                          </Link>
-                        </div>
-                        <div className="col-lg-6">
-                          <Link
-                            to="javascript:void(0)"
-                            className="practice-box"
-                          >
-                            <h4>
-                              <i className="icofont-book-alt icofont-2x" />
-                              03. Relations and Functions
-                            </h4>
-                          </Link>
-                        </div>
-                        <div className="col-lg-12">
-                          <h3 className="books-subtitle">Mathematics-1</h3>
-                        </div>
-                        <div className="col-lg-6">
-                          <Link
-                            to="javascript:void(0)"
-                            className="practice-box"
-                          >
-                            <h4>
-                              <i className="icofont-book-alt icofont-2x" />
-                              04. Inverse Trigonometric Functions
-                            </h4>
-                          </Link>
-                        </div>
-                        <div className="col-lg-6">
-                          <Link
-                            to="javascript:void(0)"
-                            className="practice-box"
-                          >
-                            <h4>
-                              <i className="icofont-book-alt icofont-2x" />
-                              05. Relations and Functions
-                            </h4>
-                          </Link>
-                        </div>
-                        <div className="col-lg-6">
-                          <Link
-                            to="javascript:void(0)"
-                            className="practice-box"
-                          >
-                            <h4>
-                              <i className="icofont-book-alt icofont-2x" />
-                              06. Inverse Trigonometric Functions
-                            </h4>
-                          </Link>
-                        </div>
-                        <div className="col-lg-6">
-                          <Link
-                            to="javascript:void(0)"
-                            className="practice-box"
-                          >
-                            <h4>
-                              <i className="icofont-book-alt icofont-2x" />
-                              07. Relations and Functions
-                            </h4>
-                          </Link>
-                        </div>
-                        <div className="col-lg-6">
-                          <Link
-                            to="javascript:void(0)"
-                            className="practice-box"
-                          >
-                            <h4>
-                              <i className="icofont-book-alt icofont-2x" />
-                              08. Inverse Trigonometric Functions
-                            </h4>
-                          </Link>
-                        </div>
+                        {books.map((book) => (
+                          <div className="col-lg-6" key={book.id}>
+                            <button
+                              onClick={() => handleBookClick(book.book_url)}
+                              className="practice-box"
+                            >
+                              <h4>
+                                <i className="fa-solid fa-book"></i>
+                                {book.books_name}
+                              </h4>
+                            </button>
+                          </div>
+                        ))}
+                            
                       </div>
-                    </div> */}
-                    {/* <div
+                    </div>
+                    <div
                       className={`tab-pane fade ${
                         activeTab === "notes" ? "show active" : ""
                       }`}
@@ -325,7 +255,7 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
                       aria-labelledby="notes"
                     >
                       Notes content
-                    </div> */}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -333,20 +263,13 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
                 <div className="course-layout-content-box custom-sticky sticky-top">
                   <div className="inner-title justify-content-between">
                     <div className="inner-title mb-0">
-                      <div
-                        to="chapters.php"
-                        className="dashboard__single__counter"
-                      >
-                        <img
-                          loading="lazy"
-                          src="https://deltaweb.in/deltaview-lms/img/counter/maths.png"
-                          alt="counter"
-                        />
+                      <div className="dashboard__single__counter">
+                        <img loading="lazy" src="" alt="Logo" />
                       </div>
                       <div>
                         <h4>{subjectTitle}</h4>
                         <p>
-                          <span className="icofont-book-alt" /> {totalVideos}
+                          <i class="fa-solid fa-book"></i> {totalVideos}
                         </p>
                       </div>
                     </div>
@@ -426,7 +349,7 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
                                             className={`${
                                               activeVideoIndex === i &&
                                               index < 3
-                                                ? "icofont-ui-video-play"
+                                                ? "fa-solid fa-circle-play"
                                                 : is_icon === 3
                                                 ? "fa-solid fa-lock"
                                                 : "fa-solid fa-circle-play"
@@ -451,7 +374,7 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
           </div>
         </section>
 
-        {/* <DashBoardfooter />  */}
+        <DashBoardfooter />
       </div>
     </>
   );

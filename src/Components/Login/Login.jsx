@@ -32,6 +32,16 @@ const Login = () => {
         // Store the JWT token in localStorage
         localStorage.setItem("token", response.data.token);
 
+        // Store email in localStorage if "Remember Me" is checked
+        if (rememberMe) {
+          localStorage.setItem("rememberedEmail", values.email);
+          localStorage.setItem("rememberedToken", response.data.token);
+        } else {
+          // Clear stored email and token if "Remember Me" is unchecked
+          localStorage.removeItem("rememberedEmail");
+          localStorage.removeItem("rememberedToken");
+        }
+
         // Display success toast upon successful login
         toast.success("Logged In Successfully");
 
@@ -54,19 +64,27 @@ const Login = () => {
       }
     },
   });
-  // Function to toggle "Remember Me" checkbox state
+
   const toggleRememberMe = () => {
     setRememberMe(!rememberMe);
-    console.log("remember me")
   };
 
-  // Effect to pre-fill email field if "Remember Me" is checked and email is stored in localStorage
   useEffect(() => {
-    const storedEmail = localStorage.getItem("rememberedEmail");
-    if (rememberMe && storedEmail) {
-      formik.setFieldValue("email", storedEmail);
-    }
-  }, [rememberMe, formik]);
+    const fillFormFields = () => {
+      const storedEmail = localStorage.getItem('rememberedEmail');
+      const storedPassword = localStorage.getItem('rememberedPassword');
+      if (storedEmail && storedPassword) {
+        // If there are remembered email and password, set them as initial values
+        formik.setValues({
+          email: storedEmail,
+          password: storedPassword,
+        });
+      }
+    };
+  
+    fillFormFields(); // Call the function once on mount
+  }, [formik]);
+  
 
   return (
     <>

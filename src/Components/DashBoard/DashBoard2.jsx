@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Sidebar from "./Sidebar";
-import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
 import { useUser } from "../../Store";
@@ -14,9 +14,9 @@ const DashBoard2 = () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState("home");
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+
   const navigate = useNavigate();
 
-  // const [userData, setUserData] = useState(""); // Initialize userData state
   const { userData, setUserData } = useUser(); // Use useUser hook
   const [selectedClass, setSelectedClass] = useState(null);
 
@@ -37,7 +37,14 @@ const DashBoard2 = () => {
             },
           }
         );
-        setUserData(response.data.UserData); // Set the entire user data object
+
+        const userData = response.data.UserData;
+        setUserData(userData); // Set the entire user data object
+
+        // Set the selected class based on the user's data
+        if (userData && userData.grade) {
+          setSelectedClass(userData.grade);
+        }
       } catch (err) {
         console.log("Error Fetching user profile data: " + err);
       }
@@ -46,11 +53,17 @@ const DashBoard2 = () => {
     fetchUserData();
   }, []);
 
-  const handleSubjectClick = (subjectId) => {
-    // Navigate to the ChapterPage component with the selected subject ID
-    navigate(`/chapter/${subjectId}`);
-    console.log(subjectId);
-  };
+  // Memoize the handleSubjectClick function
+  const handleSubjectClick = useMemo(
+    () => (subjectId) => {
+      // Navigate to the ChapterPage component with the selected subject ID
+      navigate(`/chapter/${subjectId}`);
+
+      console.log(subjectId);
+    },
+    [navigate]
+  );
+
   const handleContactUsClick = () => {
     setShowOffcanvas(true); // Open the Offcanvas
     setShowMobileMenu(false); // Close mobile menu when Offcanvas is opened
@@ -146,8 +159,7 @@ const DashBoard2 = () => {
                         Edit Profile
                       </Link>
                     </li>
-                    <li >
-                     
+                    <li>
                       <Link className="sidebar-toggler" to="#">
                         Contact Us
                       </Link>
@@ -162,19 +174,19 @@ const DashBoard2 = () => {
             </div>
             <div className="mobile-social-wrap">
               <Link className="facebook" to="#">
-                <i className="icofont icofont-facebook" />
+                <i class="fa-brands fa-facebook"></i>
               </Link>
               <Link className="twitter" to="#">
-                <i className="icofont icofont-twitter" />
+                <i class="fa-brands fa-twitter"></i>
               </Link>
               <Link className="pinterest" to="#">
-                <i className="icofont icofont-pinterest" />
+                <i class="fa-brands fa-pinterest"></i>
               </Link>
               <Link className="instagram" to="#">
-                <i className="icofont icofont-instagram" />
+                <i class="fa-brands fa-instagram"></i>
               </Link>
               <Link className="google" to="#">
-                <i className="icofont icofont-youtube-play" />
+                <i class="fa-brands fa-youtube"></i>
               </Link>
             </div>
           </div>

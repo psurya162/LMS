@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 import "./model.css";
@@ -16,6 +16,12 @@ const DashboardStickybar = ({ updateClassAndNavigateToDashboard }) => {
 
   const [showEnglishModal, setShowEnglishModal] = useState(false);
   const [showCBSEModal, setShowCBSEModal] = useState(false);
+
+  useEffect(() => {
+    if (userData && userData.grade) {
+      setSelectedClass(userData.grade);
+    }
+  }, [userData]);
 
   const handleCloseModal = (modalName) => {
     switch (modalName) {
