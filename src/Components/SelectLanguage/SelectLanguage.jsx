@@ -25,7 +25,7 @@ const SelectLanguage = () => {
         }
   
         // Send a request to the backend endpoint to update the selected language
-        const res = await axios.put('https://deltaviewlms.onrender.com/api/v1/language', {
+        const res = await axios.put('http://localhost:5000/api/v1/language', {
           language: language,
         }, {
           headers: {

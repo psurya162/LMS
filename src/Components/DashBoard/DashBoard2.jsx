@@ -30,7 +30,7 @@ const DashBoard2 = () => {
         }
 
         const response = await axios.get(
-          "https://deltaviewlms.onrender.com/api/v1/userss",
+          "http://localhost:5000/api/v1/userss",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -52,6 +52,20 @@ const DashBoard2 = () => {
 
     fetchUserData();
   }, []);
+
+  useEffect(() => {
+    // Inside the checkToken function
+const checkToken = () => {
+  const token = localStorage.getItem("token");
+  
+  if (!token) {
+    
+    navigate("/login");
+  }
+};
+
+    checkToken();
+  }, [navigate]);
 
   // Memoize the handleSubjectClick function
   const handleSubjectClick = useMemo(
@@ -84,7 +98,7 @@ const DashBoard2 = () => {
   const updateClassAndNavigateToDashboard = async (classNumber) => {
     try {
       const response = await axios.put(
-        "https://deltaviewlms.onrender.com/api/v1/updategrade",
+        "http://localhost:5000/api/v1/updategrade",
         { grade: classNumber },
         {
           headers: {

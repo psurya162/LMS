@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Admin = () => {
   const [adminDetails, setAdminDetails] = useState({
-    email: "",
+    username: "",
     password: ""
   });
 
@@ -18,13 +18,13 @@ const Admin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/v2/adminLogin', adminDetails);
+      const response = await axios.post('http://localhost:5000/v2/adminlogin', adminDetails);
       const { token } = response.data;
       localStorage.setItem('token', token); // Store token in local storage
       console.log('Login successful');
       // Redirect to admin dashboard after login
       setTimeout(() => {
-        navigate('/adminDashboard');
+        navigate('/admin-dashboard');
       }, 2000);
     } catch (error) {
       console.error('Error:', error);
@@ -36,14 +36,18 @@ const Admin = () => {
       <section className="login-page">
         <div className="container">
           <div className="row align-items-center justify-content-center">
+          <div className="col-lg-6">
+          <img src="./src/assets/img/logo/logo_2.png" alt="" className="img-fluid " style={{width:"300px", height:"auto"}} />
+          </div>
             <div className="col-lg-6">
+              
               <div className="p-lg-5 px-3 py-5 bg-white rounded-4">
                 <h3 className="mb-4">Login Your Account</h3>
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <input
                       type="text"
-                      name="email"
+                      name="username"
                       className="form-control"
                       placeholder="Email"
                       required="required"

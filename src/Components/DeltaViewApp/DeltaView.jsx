@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../Footer/Footer";
+
 import { Link } from "react-router-dom";
 
 const DeltaView = () => {
@@ -938,7 +938,7 @@ const DeltaView = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+    
     </>
   );
 };

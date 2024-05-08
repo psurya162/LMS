@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Footer from "../Footer/Footer";
+
 import axios from 'axios'
 import {toast , Toaster} from 'sonner'
 
@@ -299,8 +299,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-      {/* contact__form__end*/}
-      <Footer />
+      
     </>
   );
 };

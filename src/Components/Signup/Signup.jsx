@@ -80,7 +80,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "https://deltaviewlms.onrender.com/api/v1/sendotp",
+        "http://localhost:5000/api/v1/sendotp",
         {
           email: formik.values.email,
         }
@@ -134,7 +134,7 @@ const Signup = () => {
       }
 
       const response = await axios.post(
-        "https://deltaviewlms.onrender.com/api/v1/sendotp",
+        "http://localhost:5000/api/v1/sendotp",
         {
           email: formik.values.email,
         }
@@ -172,7 +172,7 @@ const Signup = () => {
       }
   
       const response = await axios.post(
-        "https://deltaviewlms.onrender.com/api/v1/verifyotp",
+        "http://localhost:5000/api/v1/verifyotp",
         {
           email: formik.values.email,
           otp: formik.values.otp,
@@ -246,7 +246,7 @@ const Signup = () => {
           toast.error("Please verify your email first");
         } else {
           const response = await axios.put(
-            "https://deltaviewlms.onrender.com/api/v1/user/" + values.email,
+            "http://localhost:5000/api/v1/user/" + values.email,
             values
           );
   

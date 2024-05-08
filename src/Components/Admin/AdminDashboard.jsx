@@ -1,13 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminStickeyHeader from "./AdminStickeyHeader";
 import License from "../License/License";
 import AdminSubscription from "./AdminSubscription";
 import { Link } from "react-router-dom";
 import { Row, Col, Card } from "react-bootstrap";
+import axios from "axios";
 
 const AdminDashboard = () => {
   const [showLicense, setShowLicense] = useState(false);
   const [showSubscription, setShowSubscription] = useState(false);
+  const [totalUsers,setTotalUsers]=useState(0)
+  const [subscribedUser,setSubscribeduser] = useState(0)
+  const [notSubscribed ,setNosubscribed]=useState(0)
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios.get('http://localhost:5000/v2/all', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }
+        });
+        console.log(response.data.userCount);
+        setTotalUsers(response.data.userCount);
+        setNosubscribed(response.data.usercount)
+        setSubscribeduser(response.data.isusercount)
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    
+  
+    fetchData();
+  }, []);
+  
 
   const handleLicenseClick = () => {
     setShowLicense(true);
@@ -37,7 +66,7 @@ const AdminDashboard = () => {
                   <div className="dashboard__inner sticky-top">
                     <div className="dashboard__nav__title">
                       <h6>
-                        <span>Welcome</span>, ####
+                        <span>Welcome</span>, Admin
                       </h6>
                     </div>
                     <div className="dashboard__nav">
@@ -73,6 +102,7 @@ const AdminDashboard = () => {
                 </div>
                 <div className="col-xl-9 col-lg-9 col-md-12">
                   <div>
+                    
                     {/* Render Home content by default */}
                     {!showLicense && !showSubscription && (
                       <div>
@@ -81,59 +111,39 @@ const AdminDashboard = () => {
                           <Col lg={3} xs={6}>
                             <Card bg="info" text="white">
                               <Card.Body>
-                                <Card.Title>150</Card.Title>
-                                <Card.Text>New Orders</Card.Text>
+                                <Card.Title>{totalUsers}</Card.Title>
+                                <Card.Text style={{color:"white"}}>Total Users</Card.Text>
                               </Card.Body>
-                              <Card.Footer>
-                                <small className="text-white">
-                                  More info{" "}
-                                  <i className="fas fa-arrow-circle-right"></i>
-                                </small>
-                              </Card.Footer>
+                              
                             </Card>
                           </Col>
                           <Col lg={3} xs={6}>
                             <Card bg="success" text="white">
                               <Card.Body>
                                 <Card.Title>
-                                  53<sup style={{ fontSize: "20px" }}>%</sup>
+                                  {subscribedUser}
                                 </Card.Title>
-                                <Card.Text>Bounce Rate</Card.Text>
+                                <Card.Text style={{color:"white"}}>Subscribed Users</Card.Text>
                               </Card.Body>
-                              <Card.Footer>
-                                <small className="text-white">
-                                  More info{" "}
-                                  <i className="fas fa-arrow-circle-right"></i>
-                                </small>
-                              </Card.Footer>
+                              
                             </Card>
                           </Col>
                           <Col lg={3} xs={6}>
                             <Card bg="warning" text="white">
                               <Card.Body>
-                                <Card.Title>44</Card.Title>
-                                <Card.Text>User Registrations</Card.Text>
+                                <Card.Title>{notSubscribed}</Card.Title>
+                                <Card.Text style={{color:"white"}}>Not Subscribed Users</Card.Text>
                               </Card.Body>
-                              <Card.Footer>
-                                <small className="text-white">
-                                  More info{" "}
-                                  <i className="fas fa-arrow-circle-right"></i>
-                                </small>
-                              </Card.Footer>
+                              
                             </Card>
                           </Col>
                           <Col lg={3} xs={6}>
                             <Card bg="danger" text="white">
                               <Card.Body>
                                 <Card.Title>65</Card.Title>
-                                <Card.Text>Unique Visitors</Card.Text>
+                                <Card.Text style={{color:"white"}}>Unique Visitors</Card.Text>
                               </Card.Body>
-                              <Card.Footer>
-                                <small className="text-white">
-                                  More info{" "}
-                                  <i className="fas fa-arrow-circle-right"></i>
-                                </small>
-                              </Card.Footer>
+                             
                             </Card>
                           </Col>
                         </Row>

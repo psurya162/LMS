@@ -36,7 +36,7 @@ const SelectStream = () => {
 
       // Call the selectstream API endpoint with the selected stream
       const response = await axios.put(
-        `https://deltaviewlms.onrender.com/api/v1/userstream`,
+        `http://localhost:5000/api/v1/userstream`,
         {
           stream: selectedStream,
         },
