@@ -47,7 +47,7 @@ const ContactUs = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/v1/submit', UserDetails);
+      const response = await axios.post('https://deltaviewlms.onrender.com/api/v1/submit', UserDetails);
       console.log(response.data);
       toast.success("Data Submitted ");
       setUserDetails({
