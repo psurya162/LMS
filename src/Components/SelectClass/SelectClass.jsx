@@ -65,7 +65,7 @@ const SelectClass = () => {
 
       // Make API call to update user data
       const response = await axios.put(
-        "http://localhost:5000/api/v1/users",
+        "https://deltaviewlms.onrender.com/api/v1/users",
         {
           name: studentData.name,
           phone: studentData.number,
