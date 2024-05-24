@@ -348,7 +348,7 @@ const Signup = () => {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       disabled={!isEmailEditable}
-                    />
+                    /> 
                     {formik.touched.email && formik.errors.email && (
                       <div className="invalid-feedback">
                         {formik.errors.email}

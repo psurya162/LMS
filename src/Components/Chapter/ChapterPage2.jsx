@@ -3,9 +3,8 @@ import DashBoardfooter from "../DashBoard/DashBoardfooter";
 import DashboardStickybar from "../DashBoard/DashboardStickybar";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate ,useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../Store";
-
 
 const ChapterPage2 = ({ selectedSubjectId }) => {
   const [openSection, setOpenSection] = useState(null);
@@ -20,7 +19,7 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
   const [playL, setPlayL] = useState(0);
   const [is_icon, set_icon] = useState(0);
   const { userData, setUserData } = useUser(); // Use useUser hook
-  
+  console.log(subjectTitle);
 
   const toggleAccordion = (sectionId) => {
     setOpenSection((prevOpenSection) =>
@@ -58,9 +57,12 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
             },
           }
         );
+
+        console.log(response.data);
         if (response.data.videos.length > 0) {
           const { videos, playLimit, playL, subject_logo } = response.data;
-
+          // Verify the value of subject_logo
+          console.log("Subject Logo:", subject_logo);
           console.log(response.data);
           setSubjectTitle(videos[0].subject_title);
           setSubjectLogo(subject_logo); // Set subject logo in state
@@ -264,7 +266,7 @@ const ChapterPage2 = ({ selectedSubjectId }) => {
                   <div className="inner-title justify-content-between">
                     <div className="inner-title mb-0">
                       <div className="dashboard__single__counter">
-                        <img loading="lazy" src="" alt="Logo" />
+                        <img loading="lazy" src={subject_logo} alt="Logo" />
                       </div>
                       <div>
                         <h4>{subjectTitle}</h4>

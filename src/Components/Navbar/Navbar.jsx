@@ -94,7 +94,7 @@ const Navbar = () => {
                   <Link className="logo__dark" to="#">
                     <img
                       loading="lazy"
-                      src="./src/assets/img/logo/logo_1.png"
+                      src="./src/assets/img/logo/delta-view-logo.png"
                       alt="logo"
                     />
                   </Link>

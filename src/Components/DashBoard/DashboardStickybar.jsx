@@ -134,7 +134,7 @@ const DashboardStickybar = ({ updateClassAndNavigateToDashboard }) => {
                   <div className="headerarea__left__logo">
                     <img
                       loading="lazy"
-                      src="https://deltaweb.in/deltaview-lms/img/logo/delta-view-logo.png"
+                      src="./src/assets/img/logo/delta-view-logo.png"
                       className="img-fluid"
                       alt="logo"
                     />
