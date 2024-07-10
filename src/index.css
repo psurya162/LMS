@@ -14149,6 +14149,25 @@ button:focus
     border-radius: 10px;
     height: 280px;
   }
+.after-circle-right:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: scale(1) translateY(-50%);
+    right: -8%;
+    background-color: #004f93;
+    width: 35rem;
+    height: 35rem;
+    border-radius: 50%;
+    z-index: -1;
+    animation: boxanim 1s infinite ease-in-out alternate;
+    display: none;
+    /* border: 5px dashed #004F94; */
+  }
+  .pt-pb-60 {
+    padding-top: 0px;
+    padding-bottom: 60px;
+}
   
   
   
