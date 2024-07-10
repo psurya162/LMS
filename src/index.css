@@ -14166,7 +14166,7 @@ button:focus
   }
   .pt-pb-60 {
     padding-top: 0px;
-    padding-bottom: 60px;
+    padding-bottom: 0px;
 }
 	.alldevices.aboutarea__2 .aboutarea__content__wraper {
   padding-left: 0px;
@@ -14176,9 +14176,12 @@ button:focus
     padding: 0px 0 60px;
 }
 	.pt-pb-100 {
-    padding-top: 35px;
-    padding-bottom: 30px;
+    padding-top: 34px;
+        padding-bottom: 40px;
 }
+	.about__right__wraper__4 {
+        margin-bottom: 15px;
+    }
   
   
   
