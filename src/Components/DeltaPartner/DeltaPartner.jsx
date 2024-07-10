@@ -25,17 +25,17 @@ const DeltaPartner = () => {
                   <p>Learning app for classes 1st to 12th All Subjects</p>
                 </div>
                 <div className="hreobannerarea__button__2">
-                  <Link to="javascript:void(0)">
+                  <Link ">
                     <img src="./src/assets/img/about/google-play.png" alt="img" />
                   </Link>
-                  <Link to="javascript:void(0)">
+                  <Link>
                     <img src="./src/assets/img/about/app-store.png" alt="img" />
                   </Link>
                 </div>
               </div>
             </div>
             <div
-              className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"
+              className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mt-4"
               data-aos="fade-up"
             >
               <img
