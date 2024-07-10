@@ -14175,6 +14175,10 @@ button:focus
     
     padding: 0px 0 60px;
 }
+	.pt-pb-100 {
+    padding-top: 35px;
+    padding-bottom: 30px;
+}
   
   
   
