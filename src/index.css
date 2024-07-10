@@ -14132,10 +14132,10 @@ button:focus
     gap: 40px;
   }
   .section__title__heading h2{
-    font-size: 12px;
+    font-size: 18px;
   }
   .language-box img{
-    width: 260px;
+    width: 290px;
     margin: 10px 5px;
   }
   .footerarea__copyright__wrapper .row{
@@ -14147,7 +14147,7 @@ button:focus
   }
   .wave-box{
     border-radius: 10px;
-    height: 280px;
+    height: 290px;
   }
 .after-circle-right:after {
     content: '';
