@@ -25,7 +25,7 @@ const DeltaPartner = () => {
                   <p>Learning app for classes 1st to 12th All Subjects</p>
                 </div>
                 <div className="hreobannerarea__button__2">
-                  <Link ">
+                  <Link >
                     <img src="./src/assets/img/about/google-play.png" alt="img" />
                   </Link>
                   <Link>
