@@ -517,7 +517,7 @@ const HeroSection = () => {
           data-aos="fade-up"
         >
           <div className="about__right__wraper__2 about__right__wraper__4">
-            <div className="educationarea__img text-end" data-tilt="">
+            <div className="educationarea__img text-center" data-tilt="">
               <img
                 loading="lazy"
                 className="aboutimg__4__img__1"
