@@ -513,7 +513,7 @@ const HeroSection = () => {
           </div>
         </div>
         <div
-          className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 aos-init aos-animate"
+          className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 aos-init aos-animate order-1 order-md-2"
           data-aos="fade-up"
         >
           <div className="about__right__wraper__2 about__right__wraper__4">
