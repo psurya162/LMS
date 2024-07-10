@@ -14123,3 +14123,33 @@ button:focus
   max-width: 50%;
   height: auto;
 }
+@media only screen and (max-width: 767px) {
+  .mobile-off-canvas-active {
+    width: 280px;
+    right: -280px;
+  }
+  .learnapp-sec .row{
+    gap: 40px;
+  }
+  .section__title__heading h2{
+    font-size: 12px;
+  }
+  .language-box img{
+    width: 260px;
+    margin: 10px 5px;
+  }
+  .footerarea__copyright__wrapper .row{
+    text-align: center;
+  }
+  .footerarea__copyright__content p{
+    margin-top: 10px;
+    text-align: center;
+  }
+  .wave-box{
+    border-radius: 10px;
+    height: 280px;
+  }
+  
+  
+  
+}
