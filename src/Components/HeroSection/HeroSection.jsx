@@ -56,7 +56,7 @@ const HeroSection = () => {
           </div>
         </div>
         <div
-          className="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 offset-lg-1"
+          className="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 offset-lg-1 mt-4"
           data-aos="fade-up"
         >
           <div className="aboutarea__img__2 d-flex justify-content-end">
